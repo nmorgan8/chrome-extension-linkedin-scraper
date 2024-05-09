@@ -1,4 +1,4 @@
-# chrome-extension-linkedin-scraper
+# LinkedIn Profile Scraper Chrome Extension
 
 This Chrome extension allows users to scrape LinkedIn profiles for their name, position, and education information.
 
