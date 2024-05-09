@@ -14,6 +14,7 @@ function scrapeLinkedInProfile() {
   edu = document.querySelectorAll('.optional-action-target-wrapper.display-flex.flex-column.full-width')
 
   data.Education = []
+  const eduChecks = ['university', 'college']
   for (let i = 0; i < edu.length; i++) {
     const text = edu[i].innerText;
     const lines = text.split('\n');
@@ -26,7 +27,7 @@ function scrapeLinkedInProfile() {
     const trimmedLines = uniqueLines.map(line => line.trim()).filter(line => line !== '');
     console.log(trimmedLines)
 
-    if (trimmedLines[0].toLowerCase().includes('university') && !trimmedLines[1].toLowerCase().includes('followers')) {
+    if (eduChecks.some(ed => trimmedLines[0].toLowerCase().includes(ed)) && !trimmedLines[1].toLowerCase().includes('followers')) {
       console.log('added')
       data.Education.push(trimmedLines)
     }
